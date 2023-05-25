@@ -28,7 +28,7 @@
         Console.WriteLine("And how long would you like to stay with us for? We have up to 2 weeks free")
 
         Do Until duration > 0 And duration < 15
-            Console.WriteLine("Please enter the amount of days you would like to stay with us for.")
+        Console.WriteLine("We cannot accomodate your stay above 15 days or below 1 night, Please select another amount of days.")
             duration = Console.ReadLine()
         Loop
 
@@ -44,8 +44,6 @@
 
 
 
-
-
         Do Until roomT >= 1 And roomT < 5
 
             Console.WriteLine("How many Single Room(s) do you require?")
@@ -57,18 +55,14 @@
             Console.WriteLine("And finally how many Family Suite(s) do you require?")
             famSu = Console.ReadLine()
 
+        roomT = (famSu + douRm + sinRm)
+
             If roomT > 4 Then
                 Console.WriteLine("Please rememebr we have a 4 Rooms per booking limit. Thank You.")
             End If
-
-            roomT = (famSu + douRm + sinRm)
-
         Loop
 
-
-
         Console.WriteLine("Thank you for choosing to stay with us, below your total will be displayed.")
-
 
         If roomT > 3 And duration > 7 Then
 
@@ -101,6 +95,10 @@
             VATTotal = (aTotal * 1.2)
 
         End If
+
+    Math.Round(nTotal, 2)
+    Math.Round(aTotal, 2)
+    Math.Round(VATTotal, 2)
 
         Console.WriteLine("So your total per night will be, £" & nTotal)
         Console.WriteLine("Your total for the whole duration will be, £" & aTotal)
